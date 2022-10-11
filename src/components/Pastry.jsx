@@ -75,7 +75,7 @@ function Pastry() {
   return (
     <div>
       <Wrapper>
-        <h3>Pastries</h3>
+        <h3>Baked Goods</h3>
         <Splide options={{
           perPage: 3,
           arrows: false,

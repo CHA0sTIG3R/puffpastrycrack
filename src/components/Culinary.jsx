@@ -74,7 +74,7 @@ function Culinary() {
   return (
     <div>
       <Wrapper>
-        <h3>Culinaries</h3>
+        <h3>Food</h3>
         <Splide options={{
           perPage: 4,
           arrows: false,
