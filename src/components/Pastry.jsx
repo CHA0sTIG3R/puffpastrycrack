@@ -62,7 +62,7 @@ function Pastry() {
   }, []);
 
   const getPastry = () => {
-    axios.get('http://localhost:8080/get-recipe/Pastry')
+    axios.get('http://localhost:8080/get-recipe/Pastry/6')
       .then((response) => {
         console.log(response.data)
         setPastry(response.data);

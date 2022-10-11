@@ -61,7 +61,7 @@ function Culinary() {
   }, []);
 
   const getCulinary = () => {
-    axios.get('http://localhost:8080/get-recipe/Culinary')
+    axios.get('http://localhost:8080/get-recipe/Culinary/6')
       .then((response) => {
         console.log(response.data)
         setCulinary(response.data);
