@@ -16,7 +16,7 @@ function NavBar() {
 
     return (
     <Navbar variant='dark' bg='dark' expand='lg' sticky='top'>
-        <Container>
+        <Container fluid>
             <Navbar.Brand href='/'>PuffPastryCrack</Navbar.Brand>
             <Navbar.Toggle aria-controls='navbar-dark'/>
             <Navbar.Collapse id='navbar-dark'>
@@ -28,8 +28,8 @@ function NavBar() {
                         id='navbar-dropdown-dark'
                     >
                         <NavDropdown.Item as={NavLink} to='/recipes/All'>All Recipes</NavDropdown.Item>
-                        <NavDropdown.Item as={NavLink} to='/recipes/Pastry'>Baked Goods</NavDropdown.Item>
-                        <NavDropdown.Item as={NavLink} to='/recipes/Culinary'>Food</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to='/recipes/Pastry'>Pastry</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to='/recipes/Culinary'>Cookery</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link as={NavLink} to='/about'>About</Nav.Link>
                 </Nav>

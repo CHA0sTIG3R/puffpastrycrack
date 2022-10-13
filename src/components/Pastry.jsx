@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/splide.min.css'
+import '@splidejs/splide/dist/css/splide.min.css';
 
 
 const Wrapper = styled.div`
@@ -10,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 16rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative; 
@@ -62,7 +63,7 @@ function Pastry() {
   }, []);
 
   const getPastry = () => {
-    axios.get('http://localhost:8080/get-recipe/Pastry/6')
+    axios.get('http://localhost:8080/get-recipes/recent/pastry/6')
       .then((response) => {
         console.log(response.data)
         setPastry(response.data);
@@ -75,21 +76,28 @@ function Pastry() {
   return (
     <div>
       <Wrapper>
-        <h3>Baked Goods</h3>
+        <h3>Recent Pastry Recipes</h3>
         <Splide options={{
           perPage: 3,
           arrows: false,
           pagination: false,
           drag: 'free',
-          gap: '5rem'
+          gap: '5rem',
+          breakpoints:{
+            1500: {perPage: 2, gap: '2rem'},
+            640: {perPage: 1, gap: '1.5rem'},
+            320: {perPage: 1, gap: '1rem'}
+          }
         }}>
         {pastry.map((recipe) => {
           return(
             <SplideSlide key={recipe.id}>
               <Card>
-                <p>{recipe.name}</p>
-                <img src={recipe.imgLocation} alt={recipe.name} />
-                <Gradient />
+                <Link to={'/recipe/'+recipe.id}>
+                  <p>{recipe.name}</p>
+                  <img src={recipe.imgLocation} alt={recipe.name} />
+                  <Gradient />
+                </Link>
               </Card>
             </SplideSlide>
             );

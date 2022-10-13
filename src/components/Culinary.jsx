@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -9,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 16rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative; 
@@ -61,7 +62,7 @@ function Culinary() {
   }, []);
 
   const getCulinary = () => {
-    axios.get('http://localhost:8080/get-recipe/Culinary/6')
+    axios.get('http://localhost:8080/get-recipes/recent/culinary/6')
       .then((response) => {
         console.log(response.data)
         setCulinary(response.data);
@@ -74,21 +75,28 @@ function Culinary() {
   return (
     <div>
       <Wrapper>
-        <h3>Food</h3>
+        <h3>Recent Cookery Recipes</h3>
         <Splide options={{
           perPage: 4,
           arrows: false,
           pagination: false,
           drag: 'free',
-          gap: '5rem'
+          gap: '5rem',
+          breakpoints:{
+            1500: {perPage: 3, gap: '2rem'},
+            960: {perPage: 2, gap: '1.5rem'},
+            480: {perPage: 1, gap: '1rem'},
+          }
         }}>
         {culinary.map((recipe) => {
           return(
             <SplideSlide key={recipe.id}>
               <Card>
-                <p>{recipe.name}</p>
-                <img src={recipe.imgLocation} alt={recipe.name} />
-                <Gradient />
+                <Link to={'/recipe/'+recipe.id}>
+                  <p>{recipe.name}</p>
+                  <img src={recipe.imgLocation} className='img-fluid' alt={recipe.name} />
+                  <Gradient />
+                </Link>
               </Card>
             </SplideSlide>
             );

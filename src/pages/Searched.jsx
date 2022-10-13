@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -52,8 +52,10 @@ function Searched() {
       {searched.map((item) => {
         return(
           <Card key={item.id}>
-            <img src={item.imgLocation} alt={item.name} />
-            <h4>{item.name}</h4>
+            <Link to={'/recipe/'+item.id}>
+              <img src={item.imgLocation} alt={item.name} />
+              <h4>{item.name}</h4>
+            </Link>
           </Card>
         )
       })}
