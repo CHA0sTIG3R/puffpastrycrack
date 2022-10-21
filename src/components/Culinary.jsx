@@ -4,10 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css'
-
-const Wrapper = styled.div`
-  margin: 4rem 0rem;
-`;
+import { Spinner } from 'react-bootstrap';
 
 const Card = styled.div`
   min-height: 16rem;
@@ -62,7 +59,7 @@ function Culinary() {
   }, []);
 
   const getCulinary = () => {
-    axios.get('http://localhost:8080/get-recipes/recent/culinary/6')
+    axios.get('https://puffpastrycrack.uk.r.appspot.com/get-recipes/recent/culinary')
       .then((response) => {
         console.log(response.data)
         setCulinary(response.data);
@@ -74,7 +71,7 @@ function Culinary() {
 
   return (
     <div>
-      <Wrapper>
+        <div>
         <h3>Recent Cookery Recipes</h3>
         <Splide options={{
           perPage: 4,
@@ -88,7 +85,7 @@ function Culinary() {
             480: {perPage: 1, gap: '1rem'},
           }
         }}>
-        {culinary.map((recipe) => {
+        {culinary.length? culinary.map((recipe) => {
           return(
             <SplideSlide key={recipe.id}>
               <Card>
@@ -100,9 +97,9 @@ function Culinary() {
               </Card>
             </SplideSlide>
             );
-          })}
+          }) : <Spinner className='align-center' animation='border' variant='light'/>}
           </Splide>
-        </Wrapper>
+        </div>
     </div>
   )
 }

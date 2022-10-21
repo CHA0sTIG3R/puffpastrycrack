@@ -4,26 +4,42 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-  display: flex;
+  
+  .contain{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media (max-width: 800px) {
+    .contain{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
   .active{
     background: linear-gradient(35deg, #494949, #313131);
     color: white;
   }
-
+  .img{
+    margin: 1.5rem;
+    width: 50vh;
+    height: auto;
+  }
   img{
+    height: 100%;
     width: 100%;
-    height: 70%;
-    object-fit: cover;
   }
 
   h2{
     margin-bottom: 2rem;
+    color: #f7f5f2;
   }
   li{
     font-size: 1.2rem;
     line-height: 2rem;
+    color: #f7f5f2;
   }
   ul{
     margin-top: 2rem;
@@ -31,7 +47,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   color: #313131;
   background: white;
   border: 2px solid black;
@@ -40,7 +56,7 @@ const Button = styled.button`
 `;
 
 const Details = styled.div`
-  margin-left: 10rem;
+  margin: 1.5rem;
   .btn{
     display: flex;
   }
@@ -53,7 +69,7 @@ function Recipe() {
   let params = useParams();
 
   const getRecipe = (id) => {
-    axios.get(`http://localhost:8080/get-recipe/${id}`)
+    axios.get(`https://puffpastrycrack.uk.r.appspot.com/get-recipe/${id}`)
       .then((response) => {
         console.log(response.data);
         setAttributes(response.data);
@@ -68,48 +84,52 @@ function Recipe() {
   }, [params.id])
 
   return (
+    <div>
     <Wrapper>
-      <div>
-        <h2>{attributes.name}</h2>
-        <img src={attributes.imgLocation} alt={attributes.name}/>
-      </div>
-      <Details>
-        <div className='btn'>
-          <Button 
-            className={selectedTab === 'ingredients'? 'active': ''} 
-            onClick={() => setSelectedTab('ingredients')}
-          >
-            Ingredients
-          </Button>
-          <Button 
-            className={selectedTab === 'instructions'? 'active': ''} 
-            onClick={() => setSelectedTab('instructions')}
-          >
-            Instructions
-          </Button>
+      <div className="contain">
+        <div className="img">
+          <h2>{attributes.name}</h2>
+          <img className='img-fluid' src={attributes.imgLocation} alt={attributes.name}/>
         </div>
-        <h3>{attributes.description}</h3>
-        {selectedTab === 'ingredients'&&(
-          <div>
-            <ul>
-              {attributes.ingredients ? attributes.ingredients.map((ing, index) => (
-                <li key={index}>{ing}</li>
-              )) : ''}
-            </ul>
+        <Details>
+          <div className='btn'>
+            <Button 
+              className={selectedTab === 'ingredients'? 'active': ''} 
+              onClick={() => setSelectedTab('ingredients')}
+            >
+              Ingredients
+            </Button>
+            <Button 
+              className={selectedTab === 'instructions'? 'active': ''} 
+              onClick={() => setSelectedTab('instructions')}
+            >
+              Instructions
+            </Button>
           </div>
-        )}
-        {selectedTab === 'instructions' &&(
-          <div>
+          <h3>{attributes.description}</h3>
+          {selectedTab === 'ingredients'&&(
+            <div>
               <ul>
-              {attributes.directions ? attributes.directions.map((dir, index) => (
-                <li key={index}>{dir}</li>
-              )) : ''}
+                {attributes.ingredients ? attributes.ingredients.map((ing, index) => (
+                  <li key={index}>{ing}</li>
+                )) : ''}
               </ul>
-          </div>
-        )}
-        
-      </Details>
+            </div>
+          )}
+          {selectedTab === 'instructions' &&(
+            <div>
+                <ul>
+                {attributes.directions ? attributes.directions.map((dir, index) => (
+                  <li key={index}>{dir}</li>
+                )) : ''}
+                </ul>
+            </div>
+          )}
+          
+        </Details>
+      </div>
     </Wrapper>
+    </div>
   )
 }
 

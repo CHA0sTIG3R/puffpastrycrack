@@ -15,17 +15,17 @@ function NavBar() {
     } 
 
     return (
-    <Navbar variant='dark' bg='dark' expand='lg' sticky='top'>
+    <Navbar className='nav-custom' variant='light'  expand='lg' sticky='top'>
         <Container fluid>
             <Navbar.Brand href='/'>PuffPastryCrack</Navbar.Brand>
-            <Navbar.Toggle aria-controls='navbar-dark'/>
-            <Navbar.Collapse id='navbar-dark'>
+            <Navbar.Toggle aria-controls='navbar'/>
+            <Navbar.Collapse id='navbar'>
                 <Nav className='me-auto'>
                     <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
                     <NavDropdown
                         title='Recipes' 
-                        menuVariant='dark' 
-                        id='navbar-dropdown-dark'
+                        menuVariant='light'
+                        id='navbar-dropdown'
                     >
                         <NavDropdown.Item as={NavLink} to='/recipes/All'>All Recipes</NavDropdown.Item>
                         <NavDropdown.Item as={NavLink} to='/recipes/Pastry'>Pastry</NavDropdown.Item>

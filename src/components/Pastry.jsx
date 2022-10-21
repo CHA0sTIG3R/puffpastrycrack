@@ -4,11 +4,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
+import { Spinner } from 'react-bootstrap';
 
-
-const Wrapper = styled.div`
-  margin: 4rem 0rem;
-`;
 
 const Card = styled.div`
   min-height: 16rem;
@@ -20,8 +17,6 @@ const Card = styled.div`
     border-radius: 2rem;
     left: 0;
     position: absolute;
-    max-height: 100%;
-    max-width: 100%;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -63,7 +58,7 @@ function Pastry() {
   }, []);
 
   const getPastry = () => {
-    axios.get('http://localhost:8080/get-recipes/recent/pastry/6')
+    axios.get('https://puffpastrycrack.uk.r.appspot.com/get-recipes/recent/pastry')
       .then((response) => {
         console.log(response.data)
         setPastry(response.data);
@@ -72,10 +67,10 @@ function Pastry() {
         console.log(err)
       })
   }
-
+ 
   return (
     <div>
-      <Wrapper>
+      <div>
         <h3>Recent Pastry Recipes</h3>
         <Splide options={{
           perPage: 3,
@@ -89,21 +84,21 @@ function Pastry() {
             320: {perPage: 1, gap: '1rem'}
           }
         }}>
-        {pastry.map((recipe) => {
+        {pastry.length? pastry.map((recipe) => {
           return(
             <SplideSlide key={recipe.id}>
               <Card>
                 <Link to={'/recipe/'+recipe.id}>
                   <p>{recipe.name}</p>
-                  <img src={recipe.imgLocation} alt={recipe.name} />
+                  <img className='img-fluid' src={recipe.imgLocation} alt={recipe.name} />
                   <Gradient />
                 </Link>
               </Card>
             </SplideSlide>
             );
-          })}
+          }) : <Spinner className='align-center' animation='border' variant='light'/>}
           </Splide>
-        </Wrapper>
+      </div>
     </div>
   )
 }

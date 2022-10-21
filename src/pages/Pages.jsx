@@ -11,15 +11,17 @@ import {AnimatePresence} from 'framer-motion';
 function Pages() {
   const location = useLocation();
   return (
-    <AnimatePresence mode='wait'>
-      <Routes location={location} key={location.pathname}>
-        <Route path='/' element={<Home />} />
-        <Route path='/recipes/:type' element={<Recipes />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/searched/:search' element={<Searched />} />
-        <Route path='/recipe/:id' element={<Recipe />} />
-      </Routes>
-    </AnimatePresence>
+    <div className='container-lg pt-3 pb-3'>
+      <AnimatePresence mode='wait'>
+        <Routes location={location} key={location.pathname}>
+          <Route path='/' element={<Home />} />
+          <Route path='/recipes/:type' element={<Recipes />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/searched/:search' element={<Searched />} />
+          <Route path='/recipe/:id' element={<Recipe />} />
+        </Routes>
+      </AnimatePresence>
+    </div>
   )
 }
 
