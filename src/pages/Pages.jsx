@@ -11,7 +11,7 @@ import {AnimatePresence} from 'framer-motion';
 function Pages() {
   const location = useLocation();
   return (
-    <div className='container-lg pt-3 pb-3'>
+    <div className='container-lg pb-3'>
       <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
           <Route path='/' element={<Home />} />

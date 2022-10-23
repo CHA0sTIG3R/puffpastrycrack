@@ -80,8 +80,7 @@ function Culinary() {
           drag: 'free',
           gap: '5rem',
           breakpoints:{
-            1500: {perPage: 3, gap: '2rem'},
-            960: {perPage: 2, gap: '1.5rem'},
+            990: {perPage: 3, gap: '2rem'},
             480: {perPage: 1, gap: '1rem'},
           }
         }}>

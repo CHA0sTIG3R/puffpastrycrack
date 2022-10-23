@@ -79,9 +79,8 @@ function Pastry() {
           drag: 'free',
           gap: '5rem',
           breakpoints:{
-            1500: {perPage: 2, gap: '2rem'},
-            640: {perPage: 1, gap: '1.5rem'},
-            320: {perPage: 1, gap: '1rem'}
+            990: {perPage: 2, gap: '2rem'},
+            480: {perPage: 1, gap: '1rem'}
           }
         }}>
         {pastry.length? pastry.map((recipe) => {

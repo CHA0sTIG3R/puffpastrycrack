@@ -23,17 +23,20 @@ const Wrapper = styled.div`
     color: white;
   }
   .img{
-    margin: 1.5rem;
-    width: 50vh;
-    height: auto;
-  }
-  img{
-    height: 100%;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
     width: 100%;
+    height: 80vh;
+  }
+
+  img{
+    max-width: 100%;
+    max-height: 100%;
   }
 
   h2{
-    margin-bottom: 2rem;
+    margin: 0.5rem;
     color: #f7f5f2;
   }
   li{
@@ -47,7 +50,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   color: #313131;
   background: white;
   border: 2px solid black;
@@ -86,9 +89,9 @@ function Recipe() {
   return (
     <div>
     <Wrapper>
+      <h2>{attributes.name}</h2>
       <div className="contain">
         <div className="img">
-          <h2>{attributes.name}</h2>
           <img className='img-fluid' src={attributes.imgLocation} alt={attributes.name}/>
         </div>
         <Details>
