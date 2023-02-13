@@ -9,12 +9,12 @@ const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 3rem;
-  overflow: auto;
   position: relative;
 `;
 
 const Card = styled.div`
   min-height: 16rem;
+  max-width: 25rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;

@@ -7,15 +7,9 @@
 
 body {
   margin: 0;
-  background: #395144;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.nav-custom{
-  background-color: #f0ebce;
-}
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -25,7 +19,6 @@ code {
 
 h3{
   font-size: 1rem;
-  color: #f7f5f2;
   line-height: 2.5rem;
   margin: 2rem 0rem;
 }

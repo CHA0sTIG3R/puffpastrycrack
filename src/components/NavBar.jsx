@@ -15,7 +15,7 @@ function NavBar() {
     } 
 
     return (
-    <Navbar className='nav-custom' variant='light'  expand='lg' sticky='top'>
+    <Navbar bg='dark' variant='dark'  expand='lg' sticky='top'>
         <Container fluid>
             <Navbar.Brand href='/'>PuffPastryCrack</Navbar.Brand>
             <Navbar.Toggle aria-controls='navbar'/>

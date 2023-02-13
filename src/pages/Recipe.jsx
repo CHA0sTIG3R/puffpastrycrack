@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   
+
   .contain{
     display: flex;
     flex-direction: row;
@@ -37,12 +38,10 @@ const Wrapper = styled.div`
 
   h2{
     margin: 0.5rem;
-    color: #f7f5f2;
   }
   li{
     font-size: 1.2rem;
     line-height: 2rem;
-    color: #f7f5f2;
   }
   ul{
     margin-top: 2rem;
@@ -87,7 +86,6 @@ function Recipe() {
   }, [params.id])
 
   return (
-    <div>
     <Wrapper>
       <h2>{attributes.name}</h2>
       <div className="contain">
@@ -132,7 +130,6 @@ function Recipe() {
         </Details>
       </div>
     </Wrapper>
-    </div>
   )
 }
 
