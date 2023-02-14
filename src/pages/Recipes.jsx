@@ -96,7 +96,7 @@ function Recipes() {
               </Link>
             </Card>
           )
-        }): <Spinner className='align-center' animation='border' variant='light'/> }
+        }): <Spinner className='align-center' animation='border' variant='dark'/> }
       </Grid>
     </div>
   )

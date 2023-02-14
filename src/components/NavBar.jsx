@@ -31,7 +31,6 @@ function NavBar() {
                         <NavDropdown.Item as={NavLink} to='/recipes/Pastry'>Pastry</NavDropdown.Item>
                         <NavDropdown.Item as={NavLink} to='/recipes/Culinary'>Cookery</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link as={NavLink} to='/about'>About</Nav.Link>
                 </Nav>
                 <Form className='d-flex' onSubmit={submitHandler}>
                     <Form.Control

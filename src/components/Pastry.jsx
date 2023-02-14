@@ -95,7 +95,7 @@ function Pastry() {
               </Card>
             </SplideSlide>
             );
-          }) : <Spinner className='align-center' animation='border' variant='light'/>}
+          }) : <Spinner className='align-center' animation='border' variant='dark'/>}
           </Splide>
       </div>
     </div>
