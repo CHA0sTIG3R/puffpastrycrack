@@ -79,7 +79,7 @@ function Recipes() {
 
   return (
     <div>
-      <h2 className='pt-3 mb-3' style={{color: '#f7f5f2'}}>{params.type} Recipes</h2>
+      <h2 className='pt-3 mb-3' style={{color: 'black'}}>{params.type} Recipes</h2>
       <Grid
         animate={{opacity: 1}}
         initial={{opacity: 0}}
