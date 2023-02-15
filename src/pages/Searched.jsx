@@ -3,16 +3,19 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Spinner } from 'react-bootstrap';
+
 
 const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 3rem;
-  overflow: scroll;
+  position: relative;
 `;
 
 const Card = styled.div`
-  height: 16.5rem;
+  min-height: 16rem;
+  max-width: 25rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -77,24 +80,27 @@ function Searched() {
   }, [params.search]);
 
   return (
-    <Grid
-      animate={{opacity: 1}}
-      initial={{opacity: 0}}
-      exit={{opacity: 0}}
-      transition={{duration: 0.5}}
-    >
-      {searched.map((item) => {
-        return(
-          <Card key={item.id}>
-            <Link to={'/recipe/'+item.id}>
-              <img className='img-fluid' src={item.imgLocation} alt={item.name} />
-              <h4>{item.name}</h4>
-              <Gradient/>
-            </Link>
-          </Card>
-        )
-      })}
-    </Grid>
+    <div className='pt-5 mb-5'>
+      <Grid
+        animate={{opacity: 1}}
+        initial={{opacity: 0}}
+        exit={{opacity: 0}}
+        transition={{duration: 0.5}}
+      >
+        {searched.length? searched.map((item) => {
+          return(
+            <Card key={item.id}>
+              <Link to={'/recipe/'+item.id}>
+                <img className='img-fluid' src={item.imgLocation} alt={item.name} />
+                <h4>{item.name}</h4>
+                <Gradient/>
+              </Link>
+            </Card>
+          )
+        }): <Spinner className='align-center' animation='border' variant='dark'/> }
+      </Grid>
+    </div>
+    
   )
 }
 
