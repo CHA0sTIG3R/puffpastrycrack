@@ -72,7 +72,7 @@ function Culinary() {
   return (
     <div>
         <div>
-        <h3>Recent Cookery Recipes</h3>
+        <h3>Recent <Link to='/recipes/Culinary'>Cookery</Link> Recipes</h3>
         <Splide options={{
           perPage: 4,
           arrows: false,

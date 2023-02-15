@@ -71,7 +71,9 @@ function Pastry() {
   return (
     <div>
       <div>
-        <h3>Recent Pastry Recipes</h3>
+        <h3>
+          Recent <Link to='/recipes/Pastry'>Pastry</Link> Recipes
+        </h3>
         <Splide options={{
           perPage: 3,
           arrows: false,
