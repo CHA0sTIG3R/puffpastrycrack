@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -16,14 +15,22 @@ function Footer() {
                 </div>
                 <ul className='nav col-md-4 justify-content-end list-unstyled d-flex'>
                     <li className='ms-3'>
-                        <Link to='/' >
+                        <a 
+                            href='https://www.instagram.com/puffpastrycrack/' 
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            >
                             <FaInstagram></FaInstagram>
-                        </Link>
+                        </a>
                     </li>
                     <li className='ms-3'>
-                        <Link to='/' >
+                        <a 
+                            href='https://www.tiktok.com/@puffpastrycrack?lang=en' 
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            >
                             <FaTiktok></FaTiktok>
-                        </Link>
+                        </a>
                     </li>
                 </ul>
             </footer>
