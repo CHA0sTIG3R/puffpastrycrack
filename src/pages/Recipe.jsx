@@ -73,7 +73,6 @@ function Recipe() {
   const getRecipe = (id) => {
     axios.get(`https://backend-dot-puffpastrycrack.uk.r.appspot.com/get-recipe/${id}`)
       .then((response) => {
-        console.log(response.data);
         setAttributes(response.data);
       })
       .catch((err) => {

@@ -61,7 +61,6 @@ function Culinary() {
   const getCulinary = () => {
     axios.get('https://backend-dot-puffpastrycrack.uk.r.appspot.com/get-recipes/recent/culinary')
       .then((response) => {
-        console.log(response.data)
         setCulinary(response.data);
       })
       .catch((err) => {
