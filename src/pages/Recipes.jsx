@@ -64,7 +64,7 @@ function Recipes() {
   let params = useParams();
 
   const getRecipes = (name) => {
-    axios.get(`https://puffpastrycrack.uk.r.appspot.com/get-recipes/${name}`)
+    axios.get(`https://backend-dot-puffpastrycrack.uk.r.appspot.com/get-recipes/${name}`)
       .then((response) => {
         setRecipe(response.data)
       })

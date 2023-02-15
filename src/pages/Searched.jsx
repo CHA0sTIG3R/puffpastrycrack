@@ -64,7 +64,7 @@ function Searched() {
   let params = useParams();
 
   const getSearchResults = (name) => {
-    axios.get('https://puffpastrycrack.uk.r.appspot.com/search-recipe',{params:{
+    axios.get('https://backend-dot-puffpastrycrack.uk.r.appspot.com/search-recipe',{params:{
       query: name
     }})
       .then((response) => {

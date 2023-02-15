@@ -58,7 +58,7 @@ function Pastry() {
   }, []);
 
   const getPastry = () => {
-    axios.get('https://puffpastrycrack.uk.r.appspot.com/get-recipes/recent/pastry')
+    axios.get('https://backend-dot-puffpastrycrack.uk.r.appspot.com/get-recipes/recent/pastry')
       .then((response) => {
         console.log(response.data)
         setPastry(response.data);
